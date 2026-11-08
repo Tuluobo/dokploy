@@ -44,17 +44,19 @@ docker swarm leave --force 2>/dev/null
 
 get_ip() {
     # Try to get IPv4
-    local ipv4=$(curl -4s https://ifconfig.io 2>/dev/null)
+    # local ipv4=$(curl -4s https://ifconfig.io 2>/dev/null)
 
-    if [ -n "$ipv4" ]; then
-        echo "$ipv4"
-    else
-        # Try to get IPv6
-        local ipv6=$(curl -6s https://ifconfig.io 2>/dev/null)
-        if [ -n "$ipv6" ]; then
-            echo "$ipv6"
-        fi
-    fi
+    # if [ -n "$ipv4" ]; then
+    #     echo "$ipv4"
+    # else
+    #     # Try to get IPv6
+    #     local ipv6=$(curl -6s https://ifconfig.io 2>/dev/null)
+    #     if [ -n "$ipv6" ]; then
+    #         echo "$ipv6"
+    #     fi
+    # fi
+
+    echo "192.168.5.45"
 }
 
 advertise_addr=$(get_ip)
